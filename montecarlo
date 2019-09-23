@@ -1,0 +1,34 @@
+[x,y,z] = createRandomHotspotEnv(1,[-10 10],[-10 10],1000,1000);
+minX = min(min(x));
+maxX = max(max(x));
+minY = min(min(y));
+maxY = max(max(y));
+[pathX pathY] = lawnMowerPath([minX maxX minY maxY],3);
+figure(1)
+clf
+surf(x,y,z,'EdgeColor','none')
+hold on
+plot3(pathX,pathY,ones(size(pathX))*20,'LineWidth',3,'color','red','Marker','.','MarkerSize',40,'LineStyle','--');
+view([0 90])
+set(gcf, 'Position',  [50, 50, 950, 900])
+set(gca,'FontSize',20)
+colormap('jet')
+axis equal
+
+figure(2)
+clf
+hold on
+zSampled = interp2(x,y,z,pathX,pathY);
+
+xRecreate = linspace(-10,10,100);
+yRecreate = linspace(-10,10,100);
+[xRecreate,yRecreate] = meshgrid(xRecreate,yRecreate);
+zRecreate = griddata(pathX,pathY,zSampled,xRecreate,yRecreate)
+%zRecreate = RecreateLinearInterpolate(xRecreate,yRecreate,pathX,pathY,zSampled);
+surf(xRecreate,yRecreate,zRecreate,'EdgeColor','none')
+plot3(pathX,pathY,ones(size(pathX))*20,'LineWidth',3,'color','red','Marker','.','MarkerSize',40,'LineStyle','--');
+view([0 90])
+set(gcf, 'Position',  [50, 50, 950, 900])
+set(gca,'FontSize',20)
+colormap('jet')
+axis equal
