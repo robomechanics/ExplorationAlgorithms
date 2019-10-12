@@ -7,17 +7,19 @@ if doWriteVid
     open(v)
 end
 
-% Do certain number of iterations
+% Do certain number of iterations- look at Monte Carlo algo def: more
+% iterations, more accuracy
 iterations = 100;
 for i = 1:iterations
     % create random enviornment
     [x,y,z] = createRandomHotspotEnv(1,[-10 10],[-10 10],1000,1000);
-    minX = min(min(x));
+    minX = min(min(x));%parameters to send to Path function
     maxX = max(max(x));
     minY = min(min(y));
     maxY = max(max(y));
+    %which path would you like to run/simulate?
     % create lawn mower path
-    [pathX pathY] = lawnMowerPath([minX maxX minY maxY],3);
+    [pathX pathY] = lawnMowerPath([minX maxX minY maxY],3); %lawnMowerPath is a function in a different file
     figure(1)
     clf
     set(gcf,'Color','w')
