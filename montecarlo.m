@@ -20,7 +20,7 @@ for i = 1:iterations
 %     maxY = max(max(env1.y));
     
     %old way
-    [x,y,z] = createRandomHotspotEnv(1,[-10 10],[-10 10],1000,1000, 2, [-20,20],[-10,10]);
+    [x,y,z] = createRandomHotspotEnv(1,[-10 10],[-10 10],1000,1000, 2, [-10,10],[-10,10]);
     minX = min(min(x));%parameters to send to Path function
     maxX = max(max(x));
     minY = min(min(y));
