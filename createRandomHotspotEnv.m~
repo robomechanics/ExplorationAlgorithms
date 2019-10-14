@@ -9,25 +9,11 @@ for i = 1:numHotSpots
     hotspotCenter = [rangeX(1)+rand*(rangeX(2)-rangeX(1)),rangeY(1)+rand*(rangeY(2)-rangeY(1))];
     hotspotR1 = min(range(rangeX),range(rangeY))*0.1*rand;
     hotspotR2 = (1+5*rand)*hotspotR1;
-    z = addCircleSmoothed(x,y,z,30,hotspotCenter,hotspotR1,hotspotR2); %density covers entire map... Time to draw circles?
+    z = addCircleSmoothed(x,y,z,30,hotspotCenter,hotspotR1,hotspotR2, false);
     
-    %pseudocode
-    %for i in obstacles
-        %I need a center and a radius. Don't worry about Gaussian fall offs
-        %yet
-end
-
-for j = 1:numObstacles
+for i = 1:numObstacles
     obstacleCenter = [rangeX(1)+rand*(rangeX(2)-rangeX(1)),rangeY(1)+rand*(rangeY(2)-rangeY(1))];
     obstacleR1 = min(range(rangeObsX),range(rangeObsY))*0.1*rand;
-   % obstacleR2 = (1+5*rand)*obstacleR1;
-    z = addCircle(x,y,z,10,obstacleCenter,obstacleR1); %(x,y,z,magnitude,center,radius)
-  
-end
-    
-% for i = 1:numObstacles
-%     obstacleCenter = [rangeX(1)+rand*(rangeX(2)-rangeX(1)),rangeY(1)+rand*(rangeY(2)-rangeY(1))];
-%     obstacleR1 = min(range(rangeObsX),range(rangeObsY))*0.1*rand;
-%     obstacleR2 = (1+5*rand)*obstacleR1;
-%     z = addCircleSmoothed(x,y,obs,30,obstacleCenter,obstacleR1,obstacleR2, true);
+    obstacleR2 = (1+5*rand)*obstacleR1;
+    obs = addCircleSmoothed(x,y,obs,30,obstacleCenter,obstacleR1,obstacleR2, true);
 end
