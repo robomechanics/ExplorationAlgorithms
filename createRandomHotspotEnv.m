@@ -1,6 +1,6 @@
 function [x,y,z] = createRandomHotspotEnv(numHotSpots,rangeX,rangeY,numX,numY)
 %create base environment
-x = linspace(rangeX(1),rangeX(2),numX); %create a x vector with a specified length
+x = linspace(rangeX(1),rangeX(2),numX); %create numX evenly spaced points from rangeX(1) to rangeX(2)
 y = linspace(rangeY(1),rangeY(2),numY); %create a y vector with a specified length
 [x,y] = meshgrid(x,y); %fill in the rest of the grid from the x,y axis
 
