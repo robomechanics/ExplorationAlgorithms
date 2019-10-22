@@ -35,17 +35,6 @@ classdef Environment
             end
         end
         
-%         function [z] =  createRandomHotspot(obj,numHotSpots,rangeX,rangeY) %void return as it should just add ontop of already created environ
-%             %METHOD1 Summary of this method goes here
-%             %   Detailed explanation goes here
-%             z = zeros(size(obj.x)); %create a matrix for hotspots
-%             for i = 1:numHotSpots
-%                 hotspotCenter = [rangeX(1)+rand*(rangeX(2)-rangeX(1)),rangeY(1)+rand*(rangeY(2)-rangeY(1))];
-%                 hotspotR1 = min(range(rangeX),range(rangeY))*0.1*rand;
-%                 hotspotR2 = (1+5*rand)*hotspotR1;
-%                 z = addCircleSmoothed(obj.x,obj.y,z,30,hotspotCenter,hotspotR1,hotspotR2);
-%             end
-%         end
         function [x,y,z] = createRandomHotspot(obj, numHotSpots,rangeX,rangeY)
             %create base environment
             x = linspace(rangeX(1),rangeX(2),obj.x); %create numX evenly spaced points from rangeX(1) to rangeX(2)
@@ -61,17 +50,17 @@ classdef Environment
             end
         end
         
-        function createRandomObstacle(obj,numObstacles,rangeX,rangeY) %void return as it should just add ontop of already created environ
-            %METHOD1 Summary of this method goes here
-            %   Detailed explanation goes here
-            z = zeros(size(obj.x)); %create a matrix for hotspots
-            for i = 1:numHotSpots
-                hotspotCenter = [rangeX(1)+rand*(rangeX(2)-rangeX(1)),rangeY(1)+rand*(rangeY(2)-rangeY(1))];
-                hotspotR1 = min(range(rangeX),range(rangeY))*0.1*rand;
-                hotspotR2 = (1+5*rand)*hotspotR1;
-                z = addCircleSmoothed(obj.x,obj.y,z,30,hotspotCenter,hotspotR1,hotspotR2);
-            end
-        end
+%         function createRandomObstacle(obj,numObstacles,rangeX,rangeY) %void return as it should just add ontop of already created environ
+%             %METHOD1 Summary of this method goes here
+%             %   Detailed explanation goes here
+%             z = zeros(size(obj.x)); %create a matrix for hotspots
+%             for i = 1:numHotSpots
+%                 hotspotCenter = [rangeX(1)+rand*(rangeX(2)-rangeX(1)),rangeY(1)+rand*(rangeY(2)-rangeY(1))];
+%                 hotspotR1 = min(range(rangeX),range(rangeY))*0.1*rand;
+%                 hotspotR2 = (1+5*rand)*hotspotR1;
+%                 z = addCircleSmoothed(obj.x,obj.y,z,30,hotspotCenter,hotspotR1,hotspotR2);
+%             end
+%         end
     end
 end
 

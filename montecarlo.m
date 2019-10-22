@@ -11,20 +11,14 @@ end
 % iterations, more accuracy
 iterations = 100;
 for i = 1:iterations
-    % create random enviornment
-    %[x,y,z] = createRandomHotspotEnv(1,[-10 10],[-10 10],1000,1000);
-%     env1 = Environment(1000,1000,[-10,10],[-10,10],1)
-%     minX = min(min(env1.x));%parameters to send to Path function
-%     maxX = max(max(env1.x));
-%     minY = min(min(env1.y));
-%     maxY = max(max(env1.y));
-    
-    %old way
-    [x,y,z] = createRandomHotspotEnv(1,[-10 10],[-10 10],1000,1000, 2, [-10,10],[-10,10]);
-    minX = min(min(x));%parameters to send to Path function
-    maxX = max(max(x));
-    minY = min(min(y));
-    maxY = max(max(y));
+     env1 = Environment(1000,1000,[-10,10],[-10,10],1);
+     x = env1.x;
+     y = env1.y;
+     z = env1.z;
+     minX = min(min(x));%parameters to send to Path function
+     maxX = max(max(x));
+     minY = min(min(y));
+     maxY = max(max(y));
     
     %which path would you like to run/simulate?
     % create lawn mower path
